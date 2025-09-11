@@ -1,33 +1,31 @@
-console.log("Jardin 04");
+console.log("Jardin 04 - Barras 3D");
+console.log(THREE);
 
-// Escena y cámara
+// Configurar <canvas>
+const canvas = document.getElementById("lienzo");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Elementos básicos: Escena, Cámara, Renderer
 const scene = new THREE.Scene();
-scene.background = new THREE.Color('#000000');
 
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
-camera.position.z = 150;
-camera.position.y = 0;
-camera.lookAt(0, 0, 0);
+// Cámara
+const camera = new THREE.PerspectiveCamera(45, canvas.width / canvas.height, 0.1, 1000);
 
-// Renderizador
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+// Renderer
+const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+renderer.setSize(canvas.width, canvas.height);
 
-// Luz ambiental y puntual
+// Luz ambiental
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
 scene.add(ambientLight);
 
+// Luz puntual
 const pointLight = new THREE.PointLight(0xffffff, 1);
 pointLight.position.set(0, 100, 200);
 scene.add(pointLight);
 
-// Parámetros de escala y diseño
+// Parámetros de diseño
 const lineScale = 0.6;
 const totalBars = 23;
 const barWidth = 8 * lineScale;
@@ -43,23 +41,47 @@ const scaledHeights = barHeights.map(h => h * lineScale);
 const totalWidth = (totalBars - 1) * spacing;
 const startX = -totalWidth / 2;
 
-// Material básico para visibilidad
-const material = new THREE.MeshStandardMaterial({ color: '#ffffff' });
+// Cargar textura JPG como Matcap
+const textureLoader = new THREE.TextureLoader();
+const barras = [];
 
-// Crear las cajas
-scaledHeights.forEach((height, i) => {
-  const x = startX + i * spacing;
-  const geometry = new THREE.BoxGeometry(barWidth, height, Math.random() * 40 + 5);
-  const cube = new THREE.Mesh(geometry, material);
+textureLoader.load('./textura/cromo.jpg', function (texture) {
+  const matcapMaterial = new THREE.MeshMatcapMaterial({ matcap: texture });
 
-  // Centrado vertical
-  cube.position.set(x, height / 2 - 20, 0);
-  scene.add(cube);
+  // Crear las barras cilíndricas
+  scaledHeights.forEach((height, i) => {
+    const x = startX + i * spacing;
+
+    const geometry = new THREE.CylinderGeometry(
+      barWidth / 2,
+      barWidth / 2,
+      height,
+      16
+    );
+
+    const barra = new THREE.Mesh(geometry, matcapMaterial);
+
+    // Centrado vertical y desplazado en Z como en el ejemplo original
+    barra.position.set(x, 0, -200);
+
+    scene.add(barra);
+    barras.push(barra);
+  });
+
+  // Activar animación
+  animate();
 });
 
 // Animación
 function animate() {
   requestAnimationFrame(animate);
+
+  // Rotar cada barra en diagonal
+  barras.forEach(barra => {
+    barra.rotation.x += 0.01;
+    barra.rotation.y += 0.01;
+    barra.rotation.z += 0.02;
+  });
+
   renderer.render(scene, camera);
 }
-animate();
