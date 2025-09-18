@@ -1,82 +1,72 @@
-console.log("Three.js: Escena con estrella al centro");
+console.log("Rectángulo que escapa del mouse");
 
-// Configurar canvas y renderer
-const canvas = document.getElementById('lienzo');
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
+const rect = document.getElementById('rectangulo');
+const body = document.body;
 
-// Crear escena y fondo
-const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xf0f0f0); // Gris claro
+gsap.set(rect, {
+  x: window.innerWidth / 2 - rect.offsetWidth / 2,
+  y: window.innerHeight / 2 - rect.offsetHeight / 2
+});
 
-// Crear cámara
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
-camera.position.z = 5;
+function getVibrantColor() {
+  const hue = Math.floor(Math.random() * 360);
+  const saturation = 100;
+  const lightness = 50 + Math.random() * 20;
+  return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+}
 
-// Crear forma de estrella 2D
-const starShape = new THREE.Shape();
-const outerRadius = 1;
-const innerRadius = 0.4;
-const spikes = 5;
-const step = Math.PI / spikes;
+function getTwoDistinctColors() {
+  let color1 = getVibrantColor();
+  let color2 = getVibrantColor();
+  let attempts = 0;
 
-for (let i = 0; i < spikes * 2; i++) {
-  const radius = i % 2 === 0 ? outerRadius : innerRadius;
-  const angle = i * step;
-  const x = Math.cos(angle) * radius;
-  const y = Math.sin(angle) * radius;
-  if (i === 0) {
-    starShape.moveTo(x, y);
-  } else {
-    starShape.lineTo(x, y);
+  while (color1 === color2 && attempts < 10) {
+    color2 = getVibrantColor();
+    attempts++;
   }
+
+  return [color1, color2];
 }
-starShape.closePath();
 
-// Extruir la forma para convertirla en geometría 3D
-const extrudeSettings = {
-  depth: 0.3,
-  bevelEnabled: false
-};
-const geometry = new THREE.ExtrudeGeometry(starShape, extrudeSettings);
+rect.addEventListener('click', (e) => {
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
 
-// Materiales definidos
-let materialIndex = 0;
-const materials = [
-  new THREE.MeshBasicMaterial({ color: 0xff3366 }), // Rojo
-  new THREE.MeshBasicMaterial({ color: 0x33ffcc }), // Verde agua
-  new THREE.MeshBasicMaterial({ color: 0x3366ff })  // Azul
-];
+  const maxX = window.innerWidth - rect.offsetWidth;
+  const maxY = window.innerHeight - rect.offsetHeight;
 
-// Crear estrella
-const star = new THREE.Mesh(geometry, materials[materialIndex]);
-scene.add(star);
+  let newX, newY;
+  let attempts = 0;
 
-// Animación con rotación
-function animate() {
-  requestAnimationFrame(animate);
+  do {
+    newX = Math.random() * maxX;
+    newY = Math.random() * maxY;
+    attempts++;
+  } while (
+    Math.abs(newX - mouseX) < 150 &&
+    Math.abs(newY - mouseY) < 150 &&
+    attempts < 100
+  );
 
-  // Rotación suave en eje Y
-  star.rotation.y += 0.01;
+  gsap.to(rect, {
+    duration: 0.6,
+    x: newX,
+    y: newY,
+    ease: "power2.out"
+  });
 
-  renderer.render(scene, camera);
-}
-animate();
+  const [bgColor, rectColor] = getTwoDistinctColors();
 
-// Evento resize: actualiza cámara y cambia material
-window.addEventListener('resize', () => {
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
+  gsap.to(body, {
+    duration: 0.6,
+    backgroundColor: bgColor,
+    ease: "power1.inOut"
+  });
 
-  // Cambiar material de forma cíclica
-  materialIndex = (materialIndex + 1) % materials.length;
-  star.material = materials[materialIndex];
+  gsap.to(rect, {
+    duration: 0.6,
+    backgroundColor: rectColor,
+    ease: "power1.inOut"
+  });
 
-  console.log(`Resize → Material actualizado a índice: ${materialIndex}`);
 });
