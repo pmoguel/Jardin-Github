@@ -3,18 +3,21 @@ console.log("Rectángulo que escapa del mouse");
 const rect = document.getElementById('rectangulo');
 const body = document.body;
 
+// Posición inicial centrada
 gsap.set(rect, {
   x: window.innerWidth / 2 - rect.offsetWidth / 2,
   y: window.innerHeight / 2 - rect.offsetHeight / 2
 });
 
+// Función para generar colores vibrantes usando HSL
 function getVibrantColor() {
   const hue = Math.floor(Math.random() * 360);
-  const saturation = 100;
-  const lightness = 50 + Math.random() * 20;
+  const saturation = 100;                            
+  const lightness = 50 + Math.random() * 20;         
   return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
 
+// Función para asegurar que dos colores no sean iguales
 function getTwoDistinctColors() {
   let color1 = getVibrantColor();
   let color2 = getVibrantColor();
@@ -48,6 +51,7 @@ rect.addEventListener('click', (e) => {
     attempts < 100
   );
 
+  // Mover el rectángulo
   gsap.to(rect, {
     duration: 0.6,
     x: newX,
@@ -55,8 +59,10 @@ rect.addEventListener('click', (e) => {
     ease: "power2.out"
   });
 
+  // Obtener dos colores vibrantes distintos
   const [bgColor, rectColor] = getTwoDistinctColors();
 
+  // Aplicar colores
   gsap.to(body, {
     duration: 0.6,
     backgroundColor: bgColor,
