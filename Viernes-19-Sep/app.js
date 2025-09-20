@@ -1,3 +1,5 @@
+console.log("Viernes 19 Sep");
+
 const canvas = document.getElementById("lienzo");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -10,18 +12,25 @@ const renderer = new THREE.WebGLRenderer({ canvas: canvas });
 renderer.setSize(canvas.width, canvas.height);
 renderer.setClearColor("#0a0c2c");
 
-// Geometría simple
 const geo = new THREE.BoxGeometry(1, 1, 1);
 const mat = new THREE.MeshStandardMaterial({ color: "#ffffff" });
 const mesh = new THREE.Mesh(geo, mat);
 scene.add(mesh);
 
-// Luz
+const botonGiro = document.getElementById("girarBtn");
+
+botonGiro.addEventListener("click", () => {
+  gsap.to(mesh.rotation, {
+    y: Math.PI * 2,
+    duration: 2,
+    ease: "power2.inOut"
+  });
+});
+
 const light = new THREE.PointLight("#ffffff", 1);
 light.position.set(5, 5, 5);
 scene.add(light);
 
-// Loop de animación
 function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
