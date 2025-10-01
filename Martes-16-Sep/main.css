@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #333333; 
+}
+
+#lienzo {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  z-index: 1; 
+}
+
+#rectangulo {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  width: 120px; /* Aumentamos el tamaño para mejor visualización */
+  height: 120px; /* Aumentamos el tamaño para mejor visualización */
+  cursor: pointer;
+  z-index: 100; 
+}
+
+#rectangulo::before,
+#rectangulo::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 25px; /* Más delgado */
+  background-color: #e65100; /* Un color naranja más cálido */
+  border-radius: 0 25px 0 25px; /* Bordes más curvos y en punta */
+  transform-origin: 0% 50%;
+}
+
+#rectangulo::before {
+  top: 15px; /* Posición ajustada */
+  left: 15px; /* Posición ajustada */
+  transform: rotate(30deg); /* Menos rotación inicial */
+}
+
+#rectangulo::after {
+  bottom: 15px; /* Posición ajustada */
+  right: 15px; /* Posición ajustada */
+  transform: rotate(-30deg); /* Menos rotación inicial */
+}
