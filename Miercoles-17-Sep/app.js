@@ -1,3 +1,4 @@
+console.log("miercoles 17 sep");
 const canvas = document.getElementById("lienzo");
 const sizes = {
     width: window.innerWidth,
