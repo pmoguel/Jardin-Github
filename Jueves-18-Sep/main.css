@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow: hidden; 
+}
+
 #lienzo {
   display: block;
   position: absolute;
@@ -11,5 +15,25 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: transparent
+  z-index: 1; 
+}
+
+/* Estilos para los botones */
+#zoomInBtn, #zoomOutBtn {
+    position: absolute;
+    top: 20px;
+    padding: 10px 15px;
+    z-index: 2; 
+    background-color: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#zoomInBtn {
+    right: 120px;
+}
+
+#zoomOutBtn {
+    right: 20px;
 }
