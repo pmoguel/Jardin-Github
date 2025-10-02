@@ -28,6 +28,8 @@ window.addEventListener('resize', () => {
 });
 
 
+gsap.registerPlugin(MotionPathPlugin);
+
 document.addEventListener('DOMContentLoaded', () => {
     const boomerang = document.getElementById('rectangulo');
     let isAnimating = false;
@@ -46,24 +48,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         tl.to(boomerang, {
-            x: '75vw', // Menos recorrido horizontal
-            y: '-250px', // Más alto para una curva más amplia
-            rotation: 720, // 2 rotaciones completas
-            duration: 2.5, // Más lento
-            ease: 'power1.inOut', // Más suave al inicio y al final
-        })
-
-        .to(boomerang, {
-            x: '0vw', // Vuelve al inicio horizontal
-            y: '0px', // Vuelve a la posición Y original
-            rotation: 1440, // 4 rotaciones completas (otras 2 adicionales)
-            duration: 2.8, // Regreso ligeramente más lento
-            ease: 'power2.out', // Suave al final del regreso
-        }, '+=0.2') // Pequeño retraso antes de volver
-
-        .to(boomerang, {
-            rotation: 0, 
-            duration: 0, 
+            motionPath: {
+                path: [
+                    {x: window.innerWidth * 0.35, y: -100},
+                    {x: window.innerWidth * 0.65, y: 0},
+                    {x: window.innerWidth * 0.35, y: 100},
+                    {x: 0, y: 0}
+                ],
+                curviness: 1.5,
+                align: boomerang,
+            },
+            rotation: 1440,
+            duration: 4.5,
+            ease: 'power1.inOut',
         });
     });
 });
