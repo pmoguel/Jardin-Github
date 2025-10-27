@@ -15,130 +15,137 @@ body, html {
 .screen-container {
     width: 1440px;
     height: 750px;
-    background-color: #000000;
-    color: #FFFFFF;
+    background-color: #f8f8f8; 
+    color: #000000;
     position: relative;
     overflow: hidden; 
+    padding: 30px 40px; /* Mantener el padding del contenedor */
+    box-sizing: border-box; 
 }
 
-/* --- Header: NING HUANG'25 --- */
+/* --- Header --- */
 .header {
-    position: absolute;
-    top: 5px;   
-    left: 40px;  
-    right: 40px; 
-    z-index: 5; 
-}
-
-.header h1 {
     display: flex;
-    justify-content: space-between; 
-    align-items: baseline; 
-    width: 100%; 
-    font-size: 10.2rem; 
+    justify-content: space-between;
+    align-items: flex-start; 
+    font-size: 1rem; 
     font-weight: 700;
-    margin: 0;
-    letter-spacing: -2px; 
 }
-
-.header .italic {
-    font-style: italic;
+.logo {
+    line-height: 1.2; 
+    flex-shrink: 0; 
 }
-
-
-/* --- Navegación: (ABOUT), MIXING..., (CONTACT) --- */
-.navigation {
-    position: absolute;
-    
-    top: 330px;
-    left: 20px;   
-    right: 20px;  
-
+.main-nav {
     display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    
-    font-size: 0.75rem; 
+    gap: 70px; 
+    margin-left: auto; /* ¡Ajuste! Empuja hacia la derecha */
+    margin-right: 50px; /* Espacio antes del contact-link */
+}
+.contact-link {
+    text-decoration: underline;
+    flex-shrink: 0; 
+}
+
+/* --- Número Phi (1,61.8) --- */
+.phi-number {
+    position: absolute;
+    top: 180px; 
+    left: 80px; 
+    font-size: 0.9rem;
     font-weight: 400;
-    letter-spacing: 1px; 
-    z-index: 5; 
 }
 
-/* --- Contenido Principal: DESIGN - FOLIO --- */
-.main-content {
+/* --- Título Principal --- */
+.main-title {
     position: absolute;
-    top: 525px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    z-index: 5; 
+    top: 200px; 
+    left: 40px;
 }
-
-.main-content h2 {
-    font-size: 2.8rem; 
-    font-weight: 700;
+.main-title h1 {
+    /* ¡Ajuste! H1 más grande y espaciado */
+    font-size: 10.5rem; /* Aumentado a 10.5rem */
+    font-weight: 900; 
     margin: 0;
+    line-height: 0.75; 
+    letter-spacing: -6px; 
     white-space: nowrap; 
 }
 
-/* --- Footer: I'M A DIGITAL DESIGNER... --- */
+/* --- Subtítulo (BASED IN UKRAINE) --- */
+.subtitle {
+    position: absolute;
+    top: 420px; 
+    right: 150px; 
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 5px; 
+}
+
+/* --- Contenido Central (Services y Profile Image) --- */
+.content-grid {
+    position: absolute;
+    bottom: 120px; /* ¡Ajuste! Colocar más arriba si es necesario */
+    left: 0; /* ¡Ajuste! Cubrir todo el ancho del screen-container */
+    right: 0;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center; /* Centrar el bloque completo */
+    align-items: flex-end; /* Alinea los elementos a su parte inferior */
+    gap: 0px; /* Eliminamos el gap, la imagen solapa los servicios */
+}
+
+.services {
+    /* Quitamos flex-basis para que sea el width quien controle */
+    width: 350px; 
+    text-align: right; 
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.6;
+    
+    /* ¡Ajuste! Posicionamos para que se superponga */
+    position: relative;
+    right: 180px; /* Mover a la izquierda, solapando con la imagen */
+    bottom: 50px; /* Ajustar verticalmente si es necesario */
+    z-index: 3; /* Asegura que esté por encima de la imagen */
+}
+.services p {
+    margin: 0;
+}
+
+.profile-image {
+    width: 450px; /* Ancho fijo para la imagen */
+    height: 550px; /* Altura fija para la imagen, se extenderá fuera del flujo */
+    position: relative; /* Para que el z-index funcione correctamente */
+    left: 0px; /* ¡Ajuste! Mueve la imagen un poco a la izquierda */
+    bottom: 0px; /* Ajustar si la imagen necesita subir o bajar */
+    
+    z-index: 2; /* Debajo de los servicios pero encima del fondo */
+}
+.profile-image img {
+    width: 100%; 
+    height: 100%; /* Llenar el contenedor */
+    object-fit: cover; /* Recorta la imagen para que quepa y mantenga la proporción */
+    display: block; 
+    filter: grayscale(100%); 
+}
+
+
+/* --- Footer --- */
 .footer {
     position: absolute;
-    bottom: 10px; 
-    
+    bottom: 80px; 
     left: 50%;
-    transform: translateX(-50%); 
-    text-align: center; 
+    transform: translateX(-50%);
     
-    font-size: 0.75rem; 
+    width: 600px; 
+    
+    text-align: center;
+    font-size: 0.8rem;
     font-weight: 400;
-    line-height: 1.5; 
-    z-index: 10; 
-    width: calc(100% - 80px); 
+    line-height: 1.6;
+    z-index: 4; 
 }
-
 .footer p {
-    margin: 0; 
-}
-
-/* --- Simulación de la IMAGEN con degradado inferior --- */
-.screen-container::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 300px; /* La imagen de fondo */
-    z-index: 1; /* Detrás de todo */
-    
-    /* ¡IMPORTANTE! Reemplaza esta URL con la imagen que quieras usar */
-    background-image: linear-gradient(
-        to top, 
-        rgba(0, 0, 0, 0.9),  
-        rgba(0, 0, 0, 0.4),  
-        rgba(0, 0, 0, 0)     
-    ), url('https://i.imgur.com/kK35UeQ.jpeg'); /* Imagen de fondo */
-    
-    background-size: cover;
-    background-position: center;
-}
-
-/* --- Barra de degradado --- */
-.screen-container::before {
-    content: '';
-    position: absolute;
-    bottom: 0; 
-    left: 0;
-    width: 100%;
-    
-    /* ¡Ajuste aquí! Un poco más alta */
-    height: 140px; /* Aumentado de 120px */
-
-    background: linear-gradient(
-        to right, 
-        #555,  
-        #888,  
-        #555   
-    );
-    opacity: 0.3; 
-    z-index: 2; /* Sobre la imagen (1), bajo el texto (5 y 10) */
+    margin: 0;
 }
