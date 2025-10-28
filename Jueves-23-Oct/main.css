@@ -19,7 +19,7 @@ body, html {
     color: #000000;
     position: relative;
     overflow: hidden; 
-    padding: 30px 40px; /* Mantener el padding del contenedor */
+    padding: 30px 40px;
     box-sizing: border-box; 
 }
 
@@ -30,6 +30,8 @@ body, html {
     align-items: flex-start; 
     font-size: 1rem; 
     font-weight: 700;
+    /* ¡Ajuste! Necesario para centrar el nav */
+    position: relative; 
 }
 .logo {
     line-height: 1.2; 
@@ -37,9 +39,12 @@ body, html {
 }
 .main-nav {
     display: flex;
-    gap: 70px; 
-    margin-left: auto; /* ¡Ajuste! Empuja hacia la derecha */
-    margin-right: 50px; /* Espacio antes del contact-link */
+    gap: 45px; /* Spacing entre los 4 */
+    
+    /* ¡Ajuste! Centrado absoluto en la página */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .contact-link {
     text-decoration: underline;
@@ -49,8 +54,8 @@ body, html {
 /* --- Número Phi (1,61.8) --- */
 .phi-number {
     position: absolute;
-    top: 180px; 
-    left: 80px; 
+    top: 130px; 
+    left: 40px;
     font-size: 0.9rem;
     font-weight: 400;
 }
@@ -58,93 +63,87 @@ body, html {
 /* --- Título Principal --- */
 .main-title {
     position: absolute;
-    top: 200px; 
+    top: 130px; 
     left: 40px;
 }
 .main-title h1 {
-    /* ¡Ajuste! H1 más grande y espaciado */
-    font-size: 10.5rem; /* Aumentado a 10.5rem */
+    font-size: 8.5rem; 
     font-weight: 900; 
     margin: 0;
-    line-height: 0.75; 
-    letter-spacing: -6px; 
+    letter-spacing: -12px; 
     white-space: nowrap; 
 }
 
 /* --- Subtítulo (BASED IN UKRAINE) --- */
 .subtitle {
     position: absolute;
-    top: 420px; 
-    right: 150px; 
+    top: 380px; 
+    right: 40px;
     font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 5px; 
 }
 
-/* --- Contenido Central (Services y Profile Image) --- */
+/* --- Contenido Central (Servicios + Imagen) --- */
 .content-grid {
     position: absolute;
-    bottom: 120px; /* ¡Ajuste! Colocar más arriba si es necesario */
-    left: 0; /* ¡Ajuste! Cubrir todo el ancho del screen-container */
-    right: 0;
-    width: 100%;
+    bottom: 120px; 
+    left: 40px;
+    right: 40px;
     
     display: flex;
-    justify-content: center; /* Centrar el bloque completo */
-    align-items: flex-end; /* Alinea los elementos a su parte inferior */
-    gap: 0px; /* Eliminamos el gap, la imagen solapa los servicios */
+    /* ¡Ajuste! Movido a la izquierda */
+    justify-content: flex-start; 
+    padding-left: 350px; /* -> Ajusta este número para mover el bloque <- */
+    
+    align-items: flex-end; 
+    gap: 0; /* ¡Ajuste! Quitamos el gap para superponer */
 }
 
 .services {
-    /* Quitamos flex-basis para que sea el width quien controle */
-    width: 350px; 
+    flex-basis: 400px; 
     text-align: right; 
     font-size: 1.3rem;
     font-weight: 700;
     line-height: 1.6;
-    
-    /* ¡Ajuste! Posicionamos para que se superponga */
+
+    /* ¡Ajuste! Para superposición */
     position: relative;
-    right: 180px; /* Mover a la izquierda, solapando con la imagen */
-    bottom: 50px; /* Ajustar verticalmente si es necesario */
-    z-index: 3; /* Asegura que esté por encima de la imagen */
+    z-index: 10; /* 1. Pone el texto encima */
+    margin-right: -200px; /* 2. Jala la imagen hacia la izquierda */
 }
 .services p {
     margin: 0;
 }
 
 .profile-image {
-    width: 450px; /* Ancho fijo para la imagen */
-    height: 550px; /* Altura fija para la imagen, se extenderá fuera del flujo */
-    position: relative; /* Para que el z-index funcione correctamente */
-    left: 0px; /* ¡Ajuste! Mueve la imagen un poco a la izquierda */
-    bottom: 0px; /* Ajustar si la imagen necesita subir o bajar */
-    
-    z-index: 2; /* Debajo de los servicios pero encima del fondo */
+    flex-basis: 310px; /* ¡Ajuste! Hice la imagen un poco más grande */
+    max-width: 400px;
+    /* ¡Ajuste! Para superposición */
+    position: relative;
+    z-index: 5; /* 3. Pone la imagen debajo */
 }
 .profile-image img {
     width: 100%; 
-    height: 100%; /* Llenar el contenedor */
-    object-fit: cover; /* Recorta la imagen para que quepa y mantenga la proporción */
-    display: block; 
-    filter: grayscale(100%); 
+    height: auto; 
+    display: block;
+    filter: grayscale(100%); /* La imagen original es B&N */
 }
 
 
 /* --- Footer --- */
 .footer {
     position: absolute;
-    bottom: 80px; 
+    bottom: 30px; 
     left: 50%;
     transform: translateX(-50%);
     
-    width: 600px; 
+    width: 380px; /* Ancho para 3 líneas */
     
     text-align: center;
     font-size: 0.8rem;
     font-weight: 400;
     line-height: 1.6;
-    z-index: 4; 
 }
 .footer p {
     margin: 0;
