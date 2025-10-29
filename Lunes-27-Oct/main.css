@@ -1,0 +1,150 @@
+/* --- Configuración Global y Reseteo Básico --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #333; 
+    font-family: 'Montserrat', sans-serif; 
+}
+
+/* --- El Contenedor Principal (1440x750) --- */
+.screen-container {
+    width: 1440px;
+    height: 750px;
+    background-color: #f8f8f8; 
+    color: #000000;
+    position: relative;
+    overflow: hidden; 
+    padding: 30px 40px;
+    box-sizing: border-box; 
+}
+
+/* --- Header --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    font-size: 1rem; 
+    font-weight: 700;
+    /* ¡Ajuste! Necesario para centrar el nav */
+    position: relative; 
+}
+.logo {
+    line-height: 1.2; 
+    flex-shrink: 0; 
+}
+.main-nav {
+    display: flex;
+    gap: 45px; /* Spacing entre los 4 */
+    
+    /* ¡Ajuste! Centrado absoluto en la página */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.contact-link {
+    text-decoration: underline;
+    flex-shrink: 0; 
+}
+
+/* --- Número Phi (1,61.8) --- */
+.phi-number {
+    position: absolute;
+    top: 130px; 
+    left: 40px;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+/* --- Título Principal --- */
+.main-title {
+    position: absolute;
+    top: 130px; 
+    left: 40px;
+}
+.main-title h1 {
+    font-size: 8.5rem; 
+    font-weight: 900; 
+    margin: 0;
+    letter-spacing: -12px; 
+    white-space: nowrap; 
+}
+
+/* --- Subtítulo (BASED IN UKRAINE) --- */
+.subtitle {
+    position: absolute;
+    top: 380px; 
+    right: 40px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 5px; 
+}
+
+/* --- Contenido Central (Servicios + Imagen) --- */
+.content-grid {
+    position: absolute;
+    bottom: 120px; 
+    left: 40px;
+    right: 40px;
+    
+    display: flex;
+    /* ¡Ajuste! Movido a la izquierda */
+    justify-content: flex-start; 
+    padding-left: 350px; /* -> Ajusta este número para mover el bloque <- */
+    
+    align-items: flex-end; 
+    gap: 0; /* ¡Ajuste! Quitamos el gap para superponer */
+}
+
+.services {
+    flex-basis: 400px; 
+    text-align: right; 
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.6;
+
+    /* ¡Ajuste! Para superposición */
+    position: relative;
+    z-index: 10; /* 1. Pone el texto encima */
+    margin-right: -200px; /* 2. Jala la imagen hacia la izquierda */
+}
+.services p {
+    margin: 0;
+}
+
+.profile-image {
+    flex-basis: 310px; /* ¡Ajuste! Hice la imagen un poco más grande */
+    max-width: 400px;
+    /* ¡Ajuste! Para superposición */
+    position: relative;
+    z-index: 5; /* 3. Pone la imagen debajo */
+}
+.profile-image img {
+    width: 100%; 
+    height: auto; 
+    display: block;
+    filter: grayscale(100%); /* La imagen original es B&N */
+}
+
+
+/* --- Footer --- */
+.footer {
+    position: absolute;
+    bottom: 30px; 
+    left: 50%;
+    transform: translateX(-50%);
+    
+    width: 380px; /* Ancho para 3 líneas */
+    
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+.footer p {
+    margin: 0;
+}
