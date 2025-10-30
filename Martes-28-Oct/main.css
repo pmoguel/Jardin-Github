@@ -7,144 +7,178 @@ body, html {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #333; 
-    font-family: 'Montserrat', sans-serif; 
+    background-color: #333; /* Color de fondo exterior */
+    font-family: 'Oswald', sans-serif; 
+    color: #000;
 }
 
 /* --- El Contenedor Principal (1440x750) --- */
 .screen-container {
     width: 1440px;
     height: 750px;
-    background-color: #f8f8f8; 
-    color: #000000;
+    background-color: #fff; /* Fondo blanco */
     position: relative;
     overflow: hidden; 
-    padding: 30px 40px;
-    box-sizing: border-box; 
 }
 
-/* --- Header --- */
-.header {
+/* --- Sección Superior: Menú y Título Estra Spa --- */
+.top-bar {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    right: 40px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; 
-    font-size: 1rem; 
-    font-weight: 700;
-    /* ¡Ajuste! Necesario para centrar el nav */
-    position: relative; 
-}
-.logo {
-    line-height: 1.2; 
-    flex-shrink: 0; 
-}
-.main-nav {
-    display: flex;
-    gap: 45px; /* Spacing entre los 4 */
-    
-    /* ¡Ajuste! Centrado absoluto en la página */
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.contact-link {
-    text-decoration: underline;
-    flex-shrink: 0; 
-}
-
-/* --- Número Phi (1,61.8) --- */
-.phi-number {
-    position: absolute;
-    top: 130px; 
-    left: 40px;
-    font-size: 0.9rem;
-    font-weight: 400;
-}
-
-/* --- Título Principal --- */
-.main-title {
-    position: absolute;
-    top: 130px; 
-    left: 40px;
-}
-.main-title h1 {
-    font-size: 8.5rem; 
-    font-weight: 900; 
-    margin: 0;
-    letter-spacing: -12px; 
-    white-space: nowrap; 
-}
-
-/* --- Subtítulo (BASED IN UKRAINE) --- */
-.subtitle {
-    position: absolute;
-    top: 380px; 
-    right: 40px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 5px; 
-}
-
-/* --- Contenido Central (Servicios + Imagen) --- */
-.content-grid {
-    position: absolute;
-    bottom: 120px; 
-    left: 40px;
-    right: 40px;
-    
-    display: flex;
-    /* ¡Ajuste! Movido a la izquierda */
-    justify-content: flex-start; 
-    padding-left: 350px; /* -> Ajusta este número para mover el bloque <- */
-    
-    align-items: flex-end; 
-    gap: 0; /* ¡Ajuste! Quitamos el gap para superponer */
-}
-
-.services {
-    flex-basis: 400px; 
-    text-align: right; 
-    font-size: 1.3rem;
-    font-weight: 700;
-    line-height: 1.6;
-
-    /* ¡Ajuste! Para superposición */
-    position: relative;
-    z-index: 10; /* 1. Pone el texto encima */
-    margin-right: -200px; /* 2. Jala la imagen hacia la izquierda */
-}
-.services p {
-    margin: 0;
-}
-
-.profile-image {
-    flex-basis: 310px; /* ¡Ajuste! Hice la imagen un poco más grande */
-    max-width: 400px;
-    /* ¡Ajuste! Para superposición */
-    position: relative;
-    z-index: 5; /* 3. Pone la imagen debajo */
-}
-.profile-image img {
-    width: 100%; 
-    height: auto; 
-    display: block;
-    filter: grayscale(100%); /* La imagen original es B&N */
-}
-
-
-/* --- Footer --- */
-.footer {
-    position: absolute;
-    bottom: 30px; 
-    left: 50%;
-    transform: translateX(-50%);
-    
-    width: 380px; /* Ancho para 3 líneas */
-    
-    text-align: center;
+    align-items: center;
+    z-index: 10;
     font-size: 0.8rem;
-    font-weight: 400;
-    line-height: 1.6;
+    font-weight: 700;
 }
-.footer p {
+.top-left-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.top-left-menu .square {
+    width: 12px;
+    height: 12px;
+    border: 2px solid #000;
+}
+.main-header-title {
+    font-size: 1.1rem; /* Ajustado para 1440px */
+    font-weight: 700;
+    text-align: center;
     margin: 0;
+}
+.top-right-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.top-right-info .dot {
+    width: 6px;
+    height: 6px;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+/* --- Sección de Imágenes (Grid de Proyectos) --- */
+.image-grid {
+    position: absolute;
+    top: 90px; /* Debajo de la barra superior */
+    left: 40px;
+    right: 40px;
+    
+    height: 420px; /* Altura calculada (750 - 90 top - 240 bottom) */
+    
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas */
+    grid-template-rows: repeat(2, 1fr); /* 2 filas */
+    gap: 15px;
+    z-index: 5;
+}
+
+.grid-item {
+    background-color: #f0f0f0;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) opacity(0.7); /* Efecto desaturado */
+}
+
+/* El elemento central de Pinterest está en color */
+.grid-item.big-item { 
+    grid-column: 2 / 4; /* Ocupa 2 columnas */
+    grid-row: 2 / 3;    
+}
+.grid-item.big-item img { 
+    filter: none; /* Sin filtro */
+}
+
+.grid-item.empty {
+    background-color: transparent; /* Celdas vacías */
+}
+
+/* Pinterest Badge */
+.pinterest-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #cb2027; /* Color de Pinterest */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 15;
+}
+.pinterest-badge img {
+    width: 12px;
+    height: 12px;
+    filter: none; 
+}
+
+/* --- Sección Inferior: JAM AREA y Contacto --- */
+.bottom-section {
+    position: absolute;
+    bottom: 50px; /* Deja espacio para el "CO" logo */
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; 
+    z-index: 10;
+}
+.big-text {
+    font-size: 16rem; /* Ajustado para 1440px */
+    font-weight: 900;
+    line-height: 0.8; 
+    color: #000;
+    opacity: 0.05; 
+    text-transform: uppercase;
+}
+.center-info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 0.8rem;
+    margin-bottom: 20px; /* Sube el bloque de texto */
+}
+.center-info .discover {
+    font-weight: 700;
+}
+.center-info .copyright {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: #666;
+}
+.center-info .lets-jam {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* --- Logo "CO" flotante --- */
+.co-logo {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #D61A3C; /* Rojo del logo */
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: 1.2rem;
+    font-weight: 900;
+    z-index: 15;
 }
