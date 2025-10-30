@@ -21,7 +21,7 @@ body, html {
     overflow: hidden; 
 }
 
-/* --- Sección Superior: Menú y Título Estra Spa --- */
+/* --- Sección Superior: (Tu código) --- */
 .top-bar {
     position: absolute;
     top: 30px;
@@ -45,7 +45,7 @@ body, html {
     border: 2px solid #000;
 }
 .main-header-title {
-    font-size: 1.1rem; /* Ajustado para 1440px */
+    font-size: 1.1rem; 
     font-weight: 700;
     text-align: center;
     margin: 0;
@@ -65,70 +65,60 @@ body, html {
 /* --- Sección de Imágenes (Grid de Proyectos) --- */
 .image-grid {
     position: absolute;
-    top: 90px; /* Debajo de la barra superior */
+    top: 90px; 
     left: 40px;
     right: 40px;
     
-    height: 420px; /* Altura calculada (750 - 90 top - 240 bottom) */
-    
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columnas */
-    grid-template-rows: repeat(2, 1fr); /* 2 filas */
-    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    /* Tus ajustes de espacio */
+    gap: 60px; 
     z-index: 5;
+    
+    align-items: flex-start;
+    padding-left: 50px; 
 }
 
+/* Contenedor de cada fila */
+.grid-row {
+    display: flex;
+    flex-direction: row;
+    /* Tu ajuste de gap horizontal */
+    gap: 190px;
+}
+
+/* Fila 1: 3 Imágenes */
+.row-1 {
+    /* Tu ajuste de margen */
+    margin-left: 250px; 
+}
+
+/* Fila 2: 4 Imágenes */
+.row-2 {
+    /* Tu ajuste de margen */
+    margin-left: 70px;
+}
+
+
 .grid-item {
+    width: 148px;
+    height: 185px;
     background-color: #f0f0f0;
     overflow: hidden;
     position: relative;
-    height: 100%;
 }
 .grid-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(100%) opacity(0.7); /* Efecto desaturado */
+    /* ¡ARREGLO! 'S' eliminada y filtro B&N aplicado a todas */
+    filter: grayscale(100%) opacity(0.7); 
 }
 
-/* El elemento central de Pinterest está en color */
-.grid-item.big-item { 
-    grid-column: 2 / 4; /* Ocupa 2 columnas */
-    grid-row: 2 / 3;    
-}
-.grid-item.big-item img { 
-    filter: none; /* Sin filtro */
-}
-
-.grid-item.empty {
-    background-color: transparent; /* Celdas vacías */
-}
-
-/* Pinterest Badge */
-.pinterest-badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #cb2027; /* Color de Pinterest */
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.7rem;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    z-index: 15;
-}
-.pinterest-badge img {
-    width: 12px;
-    height: 12px;
-    filter: none; 
-}
-
-/* --- Sección Inferior: JAM AREA y Contacto --- */
+/* --- Sección Inferior: (Tu código) --- */
 .bottom-section {
     position: absolute;
-    bottom: 5px; /* Deja espacio para el "CO" logo */
+    bottom: 5px; 
     left: 40px;
     right: 40px;
     display: flex;
@@ -166,21 +156,4 @@ body, html {
     font-weight: 500;
     text-decoration: underline;
     text-underline-offset: 4px;
-}
-
-/* --- Logo "CO" flotante --- */
-.co-logo {
-    position: absolute;
-    bottom: -10px;
-    left: 30px;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: #D61A3C;
-    color: white;
-    display: grid;
-    place-items: center;
-    font-size: 1.2rem;
-    font-weight: 900;
-    z-index: 15;
 }
