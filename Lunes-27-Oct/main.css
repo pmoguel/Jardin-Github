@@ -15,136 +15,128 @@ body, html {
 .screen-container {
     width: 1440px;
     height: 750px;
-    background-color: #f8f8f8; 
-    color: #000000;
     position: relative;
     overflow: hidden; 
-    padding: 30px 40px;
-    box-sizing: border-box; 
+    color: white; /* <-- Esta regla global puede estar causando el problema */
+    background-image: url('media/canals-amsterdam.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
-/* --- Header --- */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; 
-    font-size: 1rem; 
-    font-weight: 700;
-    /* ¡Ajuste! Necesario para centrar el nav */
-    position: relative; 
-}
-.logo {
-    line-height: 1.2; 
-    flex-shrink: 0; 
-}
-.main-nav {
-    display: flex;
-    gap: 45px; /* Spacing entre los 4 */
-    
-    /* ¡Ajuste! Centrado absoluto en la página */
+/* --- Menú Hamburguesa (Top-Left) --- */
+.menu-btn {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 40px;
+    left: 35px; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
 }
-.contact-link {
-    text-decoration: underline;
-    flex-shrink: 0; 
-}
-
-/* --- Número Phi (1,61.8) --- */
-.phi-number {
-    position: absolute;
-    top: 130px; 
-    left: 40px;
-    font-size: 0.9rem;
-    font-weight: 400;
+.menu-btn .line {
+    display: block;
+    width: 35px; 
+    height: 2px;
+    background-color: white;
+    margin: 6px 0;
 }
 
 /* --- Título Principal --- */
 .main-title {
     position: absolute;
-    top: 130px; 
-    left: 40px;
+    top: -25px; 
+    left: 50%;
+    transform: translateX(-50%); 
 }
-.main-title h1 {
-    font-size: 8.5rem; 
-    font-weight: 900; 
-    margin: 0;
-    letter-spacing: -12px; 
+.main-title {
+    
+    font-size: 17rem !important; 
+    font-weight: 900;
+    color: #FF0000 !important;
+    letter-spacing: 0px; 
+    margin:0;
+    z-index: 5;
     white-space: nowrap; 
 }
 
-/* --- Subtítulo (BASED IN UKRAINE) --- */
-.subtitle {
+/* --- Textos Verticales (Left) --- */
+.side-text-top,
+.side-text-bottom {
     position: absolute;
-    top: 380px; 
-    right: 40px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 5px; 
-}
-
-/* --- Contenido Central (Servicios + Imagen) --- */
-.content-grid {
-    position: absolute;
-    bottom: 120px; 
-    left: 40px;
-    right: 40px;
-    
-    display: flex;
-    /* ¡Ajuste! Movido a la izquierda */
-    justify-content: flex-start; 
-    padding-left: 350px; /* -> Ajusta este número para mover el bloque <- */
-    
-    align-items: flex-end; 
-    gap: 0; /* ¡Ajuste! Quitamos el gap para superponer */
-}
-
-.services {
-    flex-basis: 400px; 
-    text-align: right; 
-    font-size: 1.3rem;
-    font-weight: 700;
-    line-height: 1.6;
-
-    /* ¡Ajuste! Para superposición */
-    position: relative;
-    z-index: 10; /* 1. Pone el texto encima */
-    margin-right: -200px; /* 2. Jala la imagen hacia la izquierda */
-}
-.services p {
-    margin: 0;
-}
-
-.profile-image {
-    flex-basis: 310px; /* ¡Ajuste! Hice la imagen un poco más grande */
-    max-width: 400px;
-    /* ¡Ajuste! Para superposición */
-    position: relative;
-    z-index: 5; /* 3. Pone la imagen debajo */
-}
-.profile-image img {
-    width: 100%; 
-    height: auto; 
-    display: block;
-    filter: grayscale(100%); /* La imagen original es B&N */
-}
-
-
-/* --- Footer --- */
-.footer {
-    position: absolute;
-    bottom: 30px; 
-    left: 50%;
-    transform: translateX(-50%);
-    
-    width: 380px; /* Ancho para 3 líneas */
-    
-    text-align: center;
+    transform: rotate(-90deg);
     font-size: 0.8rem;
-    font-weight: 400;
-    line-height: 1.6;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: white;
+    white-space: nowrap; 
+    left: 35px; 
 }
-.footer p {
+
+.side-text-top {
+    top: 420px; 
+    transform-origin: top left;
+}
+
+.side-text-bottom {
+    bottom: 40px;
+    transform-origin: bottom left; 
+    display: flex;
+    align-items: center;
+}
+
+.nav-numbers {
+    margin-right: 50px; 
+}
+.nav-numbers span {
+    margin-right: 15px;
+}
+.artist-name {
+    color: #FF0000; 
+}
+
+
+/* --- Bloque de Info (Bottom-Middle) --- */
+.info-block {
+    position: absolute;
+    bottom: 150px;
+    left: 90px; 
+    width: 350px;
+    font-size: 1.25rem; 
+    line-height: 1.5;
+    z-index: 10;
+}
+.info-block p {
     margin: 0;
+}
+
+/* --- Texto de Footer (Bottom-Left) --- */
+.footer-text {
+    position: absolute;
+    bottom: 40px;
+    left: 90px; 
+    font-size: 0.75rem; 
+    font-weight: 700;
+    z-index: 10;
+}
+
+/* --- Círculo Rojo (Bottom-Right) --- */
+.red-circle {
+    position: absolute;
+    bottom: 60px;
+    right: 60px;
+    width: 140px;
+    height: 140px;
+    background-color: #FF0000;
+    border-radius: 50%;
+    
+    display: grid;
+    place-items: center;
+    z-index: 10;
+}
+.red-circle span {
+    font-size: 6rem; 
+    font-weight: 100; 
+    line-height: 1;
+    transform: scaleY(0.5); 
 }
