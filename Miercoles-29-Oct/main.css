@@ -45,10 +45,9 @@ body, html {
     border: 2px solid #000;
 }
 
-/* ¡ARREGLO TÍTULO! */
+/* Wrapper para la animación del título */
 .main-header-title-wrapper {
     overflow: hidden; 
-    /* Ajustado para que quepa el texto de 1.1rem */
     height: 1.3rem; 
 }
 .main-header-title {
@@ -56,7 +55,7 @@ body, html {
     font-weight: 700;
     text-align: center;
     margin: 0;
-    line-height: 1.1rem; /* Asegura que no tenga espacio extra */
+    line-height: 1.1rem;
 }
 .top-right-info {
     display: flex;
@@ -117,11 +116,29 @@ body, html {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
-    /* ¡ARREGLO IMÁGENES! Quitamos la opacidad */
     filter: grayscale(100%); 
-    
     transition: filter 0.3s ease;
+}
+
+/* --- ¡NUEVO! ESTILO PARA EL TEXTO 'DISCOVER PROJECT' --- */
+.discover-text {
+    position: absolute;
+    bottom: 15px; /* Sube un poco desde el fondo */
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Oculto por defecto */
+    opacity: 0;
+    transform: translateY(10px); /* Empieza 10px abajo */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    
+    z-index: 5; /* Se asegura que esté sobre la imagen */
 }
 
 /* --- EFECTOS HOVER --- */
@@ -130,9 +147,20 @@ body, html {
     z-index: 10; 
 }
 .grid-item:hover img {
-    /* Quitamos el filtro B&N */
     filter: grayscale(0%);
 }
+
+/* --- ¡NUEVO! MUESTRA EL TEXTO EN HOVER --- */
+.grid-item:hover .discover-text {
+    opacity: 1;
+    transform: translateY(0); /* Sube a su posición original */
+}
+
+/* Desenfoque de las otras imágenes */
+.grid-item.is-blurred img {
+    filter: grayscale(100%) blur(4px);
+}
+
 
 /* --- Sección Inferior: (Tu código) --- */
 .bottom-section {

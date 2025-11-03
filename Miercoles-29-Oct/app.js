@@ -1,4 +1,3 @@
-console.log("Miercoles 29 Oct");
 // Espera a que todo el contenido del HTML esté cargado
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -6,15 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const titleElement = document.querySelector('.main-header-title');
     const images = document.querySelectorAll('.grid-item');
     
-    // Guardamos el título original para poder volver a él
-    const originalTitle = titleElement.textContent;
+    // El título original ahora es un espacio vacío
+    const originalTitle = "";
 
     // Función para animar el texto
     function animateTitle(newText) {
         // 1. Anima el texto actual hacia ARRIBA y afuera
         gsap.to(titleElement, { 
             duration: 0.3, 
-            y: '-100%',         // Mueve 100% de su altura hacia arriba
+            y: '-100%',
             opacity: 0, 
             ease: 'power2.in',
             onComplete: () => {
@@ -38,23 +37,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Añadimos un "listener" a cada imagen
     images.forEach(image => {
         
-        // Obtenemos el nuevo título del atributo 'data-title' que pusimos en el HTML
         const newTitle = image.dataset.title;
 
         // Cuando el mouse entra...
         image.addEventListener('mouseenter', () => {
-            // Solo animamos si el texto es diferente
+            // Animación del título
             if (titleElement.textContent !== newTitle) {
                 animateTitle(newTitle);
             }
+
+            // --- Lógica para desenfocar ---
+            images.forEach(img => {
+                if (img !== image) { // Si NO es la imagen que estamos viendo
+                    img.classList.add('is-blurred');
+                }
+            });
+            // --- Fin de la lógica ---
         });
 
         // Cuando el mouse sale...
         image.addEventListener('mouseleave', () => {
-            // Volvemos al título original
+            // Animación del título
             if (titleElement.textContent !== originalTitle) {
                 animateTitle(originalTitle);
             }
+
+            // --- Lógica para quitar desenfoque ---
+            images.forEach(img => {
+                img.classList.remove('is-blurred');
+            });
+            // --- Fin de la lógica ---
         });
     });
 
