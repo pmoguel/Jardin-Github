@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Jueves 30 Oct - Parallax</title> 
+  
+  <link rel="stylesheet" href="main.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="screen-container">
+
+    <header class="main-header">
+      <nav class="nav-left">
+        <a href="#">ABOUT</a>
+        <a href="#">SHOP</a>
+        <a href="#">LEARN</a>
+      </nav>
+      <div class="logo-container">
+        <img src="media/logo.png" alt="ethical life logo">
+      </div>
+      <nav class="nav-right">
+        <img src="media/icon-user.png" alt="User">
+        <img src="media/icon-cart.png" alt="Cart">
+      </nav>
+    </header>
+
+    <div class="vignette-blur"></div>
+
+    <div class="parallax-container">
+      
+      <h1 class="background-text" data-depth="-0.02">ethical life</h1>
+      
+      <img src="media/gummy-blurry.png" class="parallax-item gummy-1" data-depth="-0.05">
+      <img src="media/gummy-blurry.png" class="parallax-item gummy-2" data-depth="-0.03">
+      <img src="media/gummy-blurry.png" class="parallax-item gummy-5" data-depth="-0.04">
+      <img src="media/gummy-blurry.png" class="parallax-item gummy-6" data-depth="-0.06">
+
+      <img src="media/glow.png" class="parallax-item glow" data-depth="0.02">
+
+      <img src="media/bottle.png" class="parallax-item bottle" data-depth="0.04">
+
+      <img src="media/gummy-sharp.png" class="parallax-item gummy-3" data-depth="0.1">
+      <img src="media/gummy-sharp.png" class="parallax-item gummy-4" data-depth="0.08">
+
+    </div>
+
+    <footer class="main-footer">
+      <p>Pharmacist and Nutritionist Formulated.</p>
+    </footer>
+
+  </div>
+
+  <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
