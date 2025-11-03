@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Klook Layout</title> 
+  
+  <link rel="stylesheet" href="main.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="screen-container">
+
+    <header class="main-header">
+      <div class="header-left">
+        <img src="media/klook-logo.png" alt="Klook Logo" class="klook-logo">
+      </div>
+      <div class="header-right">
+        <select class="language-selector">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+        </select>
+        <div class="toggle-switch">
+          <div class="toggle-ball"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <h1 class="main-title">First up, set your Out of Office message.</h1>
+
+      <div class="ticket-container">
+        
+        <img src="media/ticket-background.png" alt="Ticket Background" class="ticket-background">
+
+        <div class="card-stack">
+          
+          <div class="carousel-card card-left">
+            <img src="media/card-image-3.jpg" alt="Card Image 3">
+          </div>
+          
+          <div class="carousel-card card-center">
+            <img src="media/card-image-1.jpg" alt="Card Image 1">
+            <p class="card-caption">Drag the cards horizontally to cycle through your options.</p>
+          </div>
+          
+          <div class="carousel-card card-right">
+            <img src="media/card-image-2.jpg" alt="Card Image 2">
+          </div>
+
+        </div>
+      </div>
+
+      <button class="next-button">
+        Next <span class="arrow-icon">→</span>
+      </button>
+    </main>
+
+    <footer class="main-footer">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+    </footer>
+
+  </div>
+
+  <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

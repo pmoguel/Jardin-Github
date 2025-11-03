@@ -1,0 +1,225 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    font-family: 'Inter', sans-serif; 
+    color: #fff;
+}
+
+.screen-container {
+    width: 1440px;
+    height: 750px;
+    position: relative;
+    overflow: hidden; 
+    background: linear-gradient(-45deg, #c33764, #1d2671, #f09819, #ff512f);
+    background-size: 400% 400%;
+}
+
+.main-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-sizing: border-box;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.klook-logo {
+    height: 28px;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.language-selector {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 8px 15px;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.toggle-switch {
+    width: 50px;
+    height: 28px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+.toggle-ball {
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.main-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+    max-width: 500px;
+    line-height: 1.3;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.ticket-container {
+    position: relative;
+    width: 900px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.ticket-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: rotateZ(-8deg);
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+    z-index: 1;
+}
+
+.card-stack {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    z-index: 50;
+    transform: rotateZ(-8deg) translateY(-20px);
+}
+
+.carousel-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 360px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+.carousel-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel-card p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 20px;
+    margin: 0;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
+}
+
+.card-center {
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.card-left {
+    z-index: 90;
+    top: 50%;
+    left: 0;
+    transform: translate(-40%, -50%) scale(0.9) rotateZ(-10deg);
+    opacity: 0.8;
+}
+.card-right {
+    z-index: 90;
+    top: 50%;
+    left: 100%;
+    transform: translate(-60%, -50%) scale(0.9) rotateZ(10deg);
+    opacity: 0.8;
+}
+.card-left p, .card-right p {
+    display: none;
+}
+
+
+.next-button {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 100;
+}
+.arrow-icon {
+    font-size: 1.2rem;
+    background-color: #0071eb;
+    color: #fff;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+    line-height: 1;
+}
+
+.main-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+    z-index: 100;
+}
+.main-footer a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-right: 20px;
+    opacity: 0.7;
+}
