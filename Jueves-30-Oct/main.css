@@ -1,3 +1,4 @@
+/* --- Configuración Global y Reseteo Básico --- */
 body, html {
     margin: 0;
     padding: 0;
@@ -10,14 +11,16 @@ body, html {
     font-family: 'Montserrat', sans-serif; 
 }
 
+/* --- El Contenedor Principal (1440x750) --- */
 .screen-container {
     width: 1440px;
     height: 750px;
-    background-color: #fcfbf8;
+    background-color: #fcfbf8; /* Un color crema claro */
     position: relative;
     overflow: hidden; 
 }
 
+/* --- Header --- */
 .main-header {
     position: absolute;
     top: 0;
@@ -50,6 +53,7 @@ body, html {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    
     background-color: #d9f46c; 
     padding: 15px 30px; 
     border-radius: 0 0 20px 20px; 
@@ -59,6 +63,7 @@ body, html {
     display: block;
 }
 
+/* --- Contenedor Parallax --- */
 .parallax-container {
     position: relative;
     width: 100%;
@@ -79,6 +84,7 @@ body, html {
     position: absolute;
 }
 
+/* Posiciones iniciales de cada imagen */
 .glow {
     top: 50%;
     left: 50%;
@@ -94,6 +100,7 @@ body, html {
     z-index: 3;
 }
 
+/* Gomitas */
 .gummy-1 {
     top: 15%;
     left: 10%;
@@ -119,42 +126,52 @@ body, html {
     z-index: 4;
 }
 
+/* ¡NUEVO! Posición de las gomitas que faltaban */
 .gummy-5 {
     top: 45%;
-    left: 2%;
+    left: 2%; /* Extremo izquierdo */
     width: 80px;
     z-index: 1;
-    opacity: 0.7;
+    opacity: 0.7; /* Más sutiles */
 }
 .gummy-6 {
     top: 55%;
-    left: 90%;
+    left: 90%; /* Extremo derecho */
     width: 70px;
     z-index: 1;
     opacity: 0.7;
 }
 
+
+/* --- Overlay para el desenfoque en los bordes --- */
 .vignette-blur {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    
+    /* ¡CAMBIO! Blur más fuerte */
     backdrop-filter: blur(8px); 
+    
+    /* ¡CAMBIO! Máscara más apretada para que el blur sea más obvio */
     -webkit-mask-image: radial-gradient(
         circle at center,
-        transparent 50%,
-        black 75%
+        transparent 50%, /* Centro transparente */
+        black 75%       /* Bordes opacos (con blur) */
     );
     mask-image: radial-gradient(
         circle at center,
         transparent 50%,
         black 75%
     );
+    
     z-index: 50; 
     pointer-events: none; 
 }
 
+
+/* --- Footer --- */
 .main-footer {
     position: absolute;
     bottom: 30px;
