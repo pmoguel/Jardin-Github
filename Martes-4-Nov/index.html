@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Martes 4 Nov - 3D Layout</title> 
+  
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <div class="screen-container">
+
+    <header class="main-header">
+      <div class="header-left">
+        <img src="media/logo.png" alt="VAP Logo" class="logo">
+      </div>
+      <nav class="header-right">
+        <button class="contact-btn">contact</button>
+        <button class="menu-btn">menu</button>
+      </nav>
+    </header>
+
+    <main id="scene-container"></main>
+
+    <div class="overlay-content">
+      <img src="media/showreel.png" alt="Motion Design Showreel" class="showreel-card">
+      <div class="scroll-arrow">↓</div>
+    </div>
+
+    <footer class="main-footer">
+      <div class="footer-item">video as playground</div>
+      <div class="footer-item">studio de création vidéo</div>
+      <div class="footer-item">born to be online</div>
+    </footer>
+
+  </div>
+
+  <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
