@@ -1,0 +1,243 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #333;
+    font-family: 'Montserrat', sans-serif; 
+    color: #1a1a1a;
+}
+
+.screen-container {
+    width: 1440px;
+    height: 750px;
+    position: relative;
+    overflow: hidden; 
+    background-color: #f7f3ee; /* Color crema de fondo */
+}
+
+/* --- Header --- */
+.main-header {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.header-left img.logo {
+    height: 30px;
+}
+.header-center {
+    display: flex;
+    /* ¡CAMBIO! Más separación */
+    gap: 80px; 
+    font-weight: 700;
+}
+.header-center a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 0.9rem;
+    /* ¡CAMBIO! Damos ancho fijo para que no salte el layout */
+    width: 60px; 
+    text-align: center;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.language-selector {
+    background: none;
+    border: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+.menu-btn {
+    width: 50px;
+    height: 50px;
+    background-color: #ff4d00; /* Naranja */
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.menu-btn .line {
+    width: 20px;
+    height: 2px;
+    background-color: white;
+}
+
+/* --- Main Content & Title --- */
+.main-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 50px;
+}
+.main-title {
+    font-size: 9rem; /* 144px */
+    font-weight: 700;
+    line-height: 1.0; 
+    margin: 0;
+    text-align: left; 
+    color: #1a1a1a;
+    flex-shrink: 0; 
+}
+.main-title span {
+    display: inline-block;
+    vertical-align: middle; 
+}
+/* ¡NUEVO! Para alinear 'untold' a la derecha */
+.title-line.align-right {
+    text-align: right;
+}
+
+/* --- Media Containers --- */
+.media-container {
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 15px;
+    position: relative;
+    z-index: 10;
+    transition: transform 0.3s ease; 
+}
+.video-container {
+    width: 300px;
+    height: 150px;
+    margin: 0 10px;
+    overflow: hidden; 
+}
+.drawing-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 10px;
+    overflow: hidden; 
+}
+.stack-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 10px;
+    border-radius: 0; 
+}
+.media-container img,
+.media-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Estilos para la Pila de Fotos --- */
+.stack-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+.stack-photo {
+    position: absolute;
+    width: 90%; 
+    height: 90%;
+    object-fit: cover;
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.photo-1 { transform: rotate(-8deg); z-index: 1; }
+.photo-2 { transform: rotate(4deg); z-index: 2; }
+.photo-3 { transform: rotate(-4deg); z-index: 3; }
+.photo-4 { transform: rotate(8deg); z-index: 4; }
+
+.stack-container:hover .photo-1 {
+    transform: translate(-45%, -10%) rotate(-20deg) scale(1.1);
+}
+.stack-container:hover .photo-2 {
+    transform: translate(-15%, 0) rotate(-8deg) scale(1.1);
+}
+.stack-container:hover .photo-3 {
+    transform: translate(15%, 0) rotate(8deg) scale(1.1);
+}
+.stack-container:hover .photo-4 {
+    transform: translate(45%, -10%) rotate(20deg) scale(1.1);
+}
+
+
+/* --- Texto del Ecosistema --- */
+.ecosystem-text {
+    max-width: 300px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    padding-bottom: 1.5rem; 
+}
+.ecosystem-text span {
+    font-weight: 700;
+}
+
+
+/* --- Footer --- */
+.main-footer {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: flex-end;
+    z-index: 100;
+}
+.explore-button {
+    background: #ff4d00;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 15px 30px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease;
+}
+.explore-button .circle {
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+}
+
+/* --- Sidebar --- */
+.sidebar-right {
+    position: absolute;
+    right: 10px;
+    bottom: 40px;
+    transform: rotate(90deg);
+    transform-origin: bottom right;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.arrow-down {
+    transform: rotate(90deg); 
+}

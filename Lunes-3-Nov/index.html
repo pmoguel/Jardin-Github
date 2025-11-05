@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Untold Layout</title> 
+  
+  <link rel="stylesheet" href="main.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="screen-container">
+
+    <header class="main-header">
+      <div class="header-left">
+        <img src="media/logo.png" alt="Untold Logo" class="logo">
+      </div>
+      <nav class="header-center">
+        <a href="#" data-full="WORK">W</a>
+        <a href="#" data-full="ABOUT">A</a>
+        <a href="#" data-full="CONTACT">C</a>
+      </nav>
+      <div class="header-right">
+        <select class="language-selector">
+          <option value="en">(EN)</option>
+          <option value="es">(ES)</option>
+        </select>
+        <button class="menu-btn">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      
+      <h1 class="main-title">
+        <div class="title-line">
+          <span>we</span>
+          <div class="media-container video-container">
+            <img src="media/car.gif" alt="Car animation">
+          </div>
+          <span>tell</span>
+          <div class="media-container drawing-container">
+            <img src="media/drawing.png" alt="Drawing">
+          </div>
+        </div>
+        
+        <div class="title-line align-right">
+          <span>untold</span>
+        </div>
+
+        <div class="title-line">
+          <span>(</span>
+          <div class="media-container stack-container">
+            <div class="stack-wrapper">
+              <img src="media/stack1.jpg" alt="Photo 1" class="stack-photo photo-1">
+              <img src="media/stack2.jpg" alt="Photo 2" class="stack-photo photo-2">
+              <img src="media/stack3.jpg" alt="Photo 3" class="stack-photo photo-3">
+              <img src="media/stack4.jpg" alt="Photo 4" class="stack-photo photo-4">
+            </div>
+          </div>
+          <span>)</span>
+          <span>stories</span>
+        </div>
+      </h1>
+
+      <div class="ecosystem-text">
+        <p><span>(*)</span> We are a communications ecosystem built to rethink how communication happens. Six agencies. One integrated team</p>
+      </div>
+
+    </main>
+
+    <footer class="main-footer">
+      <button class="explore-button">
+        <span class="circle"></span>
+        EXPLORE OUR ECOSYSTEM
+      </button>
+    </footer>
+
+    <aside class="sidebar-right">
+      <span>SCROLL TO DISCOVER</span>
+      <div class="arrow-down">↓</div>
+    </aside>
+
+  </div>
+
+  <div id="custom-cursor-follower"></div>
+
+  <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
