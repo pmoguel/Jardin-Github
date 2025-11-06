@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Miércoles 5 Nov - Hover Gallery</title> 
+  
+  <link rel="stylesheet" href="main.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="screen-container">
+
+    <!-- 1. Contenedor de Imágenes Ocultas -->
+    <!-- Aquí es donde vivirán todas las imágenes, apiladas y ocultas -->
+    <div class="image-container">
+      <img id="img-people" src="media/people.jpg" alt="People I Met By The Sea">
+      <img id="img-lighthouse" src="media/lighthouse.jpg" alt="The Lighthouse">
+      <img id="img-sun" src="media/sun.jpg" alt="After The Sun">
+      <img id="img-tides" src="media/tides.jpg" alt="Hidden Tides">
+      <img id="img-deadsea" src="media/deadsea.jpg" alt="Dead Sea With Michael">
+      <img id="img-closing" src="media/closing.jpeg" alt="Closing">
+    </div>
+
+    <!-- 2. Contenedor de Navegación (Los Textos) -->
+    <nav class="nav-container">
+      
+      <div class="nav-column">
+        <a href="#" class="nav-link" data-img-id="img-people" data-img-pos="20%">
+          People I Met By The Sea <span>(24)</span>
+        </a>
+        <a href="#" class="nav-link" data-img-id="img-sun" data-img-pos="40%">
+          After The Sun <span>(12)</span>
+        </a>
+        <a href="#" class="nav-link" data-img-id="img-deadsea" data-img-pos="60%">
+          Dead Sea With Michael <span>(10)</span>
+        </a>
+      </div>
+      
+      <div class="nav-column">
+        <a href="#" class="nav-link" data-img-id="img-lighthouse" data-img-pos="30%">
+          The Lighthouse <span>(09)</span>
+        </a>
+        <a href="#" class="nav-link" data-img-id="img-tides" data-img-pos="50%">
+          Hidden Tides <span>(10)</span>
+        </a>
+        <a href="#" class="nav-link" data-img-id="img-closing" data-img-pos="70%">
+          Closing <span>(09)</span>
+        </a>
+      </div>
+
+    </nav>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
